@@ -7899,3 +7899,44 @@ footer h5 {
   background-color: #1de9b6; /* Change background color on hover */
   color: #fff; /* Change text color on hover */
 }
+
+
+/* Add these styles for the form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #1de9b6;
+  border-radius: 4px;
+  outline: none;
+}
+
+.btn-send {
+  background-color: #1de9b6;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-send:hover {
+  background-color: #00e676;
+}
