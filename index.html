@@ -138,33 +138,63 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto text-center">
-                <h2 class="text-white heading-black">Choose your pricing plan.</h2>
-                <p class="text-light lead">Simply pricing - 7 Days free trial</p>
+                <h2 class="text-white heading-black">Subscriptions Vouchers.</h2>
+                <p class="text-light lead">Donate E-Learning Platforms Subscriptions </p>
             </div>
         </div>
         <!--pricing tables-->
         <div class="row pt-5 pricing-table">
             <div class="col-12 mx-auto">
                 <div class="card-deck pricing-table">
-                    <div class="card">
+                    <!-- old one -->
+                    <!-- <div class="card">
                         <div class="card-body">
-                            <h3 class="card-title pt-3">Personal</h3>
-                            <h2 class="card-title text-primary mb-0 pt-4">$59</h2>
+                            <h3 class="card-title pt-3">TryHackMe</h3>
+                            <h2 class="card-title text-primary mb-0 pt-4">$14.00</h2>
                             <div class="text-muted font-weight-medium mt-2">per month</div>
                             <ul class="list-unstyled pricing-list">
-                                <li>1 user</li>
-                                <li>10 websites</li>
-                                <li>Access to premium templates</li>
-                                <li>Basic support</li>
+                                <li>Premium Rooms</li>
+                                <li>Private King of the Hill Games	</li>
+                                <li>Unlimited Web-based AttackBox & Kali</li>
                             </ul>
-                            <a href="#" class="btn btn-primary">
-                                Start free trial
+                            <a href="https://tryhackme.com/subscriptions" class="btn btn-primary">
+                                Subscription Portal
+                            </a>
+                        </div>
+                    </div> -->
+                    <!-- new div with scroll bar -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title pt-3">TryHackMe</h3>
+                    
+                            <div class=" card-title text-info mb-0 pt-4">
+                                <div class="card-title-container ">
+                                    <h2 id="amount" class="card-title text-primary mb-0 pt-4">$14.00</h2>
+                                    <div class="slider-buttons" onclick="decrementSlider()"><span data-feather="minus" ></span></div>
+                                    <input type="range" min="14" max="336" value="14" class="scroll-container " id="amountSlider" oninput="updateAmount()">
+                                    <div class="slider-buttons" onclick="incrementSlider()"><span data-feather="plus" ></span></div>
+                                </div>
+                                
+                            </div>
+                           
+                            <div class="text-muted font-weight-medium mt-2">per month</div>
+                    
+                            <ul class="list-unstyled pricing-list">
+                                <li>Premium Rooms</li>
+                                <li>Private King of the Hill Games	</li>
+                                <li>Unlimited Web-based AttackBox & Kali</li>
+                            </ul>
+                    
+                            
+                            <a href="https://tryhackme.com/subscriptions" class="btn btn-primary" target="_blank">
+                                Subscription Portal
                             </a>
                         </div>
                     </div>
+                    <!-- to here -->
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="card-title pt-3">Agency</h3>
+                            <h3 class="card-title pt-3">HackTheBox</h3>
                             <h2 class="card-title text-info mb-0 pt-4">$159</h2>
                             <div class="text-muted font-weight-medium mt-2">per month</div>
                             <ul class="list-unstyled pricing-list">
@@ -465,12 +495,44 @@
 
 
  
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS , Medium , Slider Scripts-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script src="js/scripts.js"></script>
+<script src="https://www.twilik.com/assets/retainable/rss-embed/retainable-rss-embed.js"></script>
+
+<script>
+function updateAmount() {
+    var slider = document.getElementById("amountSlider");
+    var amount = document.getElementById("amount");
+    
+    // Ensure the slider value is a multiple of 14
+    var newValue = Math.floor(slider.value / 14) * 14;
+    
+    // Update the slider value
+    slider.value = newValue;
+    
+    // Update the displayed amount
+    amount.innerText = "$" + newValue + ".00";
+}
+    function incrementSlider() {
+        var slider = document.getElementById("amountSlider");
+        if (parseInt(slider.value) < 336) {
+            slider.value = parseInt(slider.value) + 14;
+            updateAmount();
+        }
+    }
+
+    function decrementSlider() {
+        var slider = document.getElementById("amountSlider");
+        if (parseInt(slider.value) > 14) {
+            slider.value = parseInt(slider.value) - 14;
+            updateAmount();
+        }
+    }
+</script>
 </body>
 </html>

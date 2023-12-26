@@ -7867,3 +7867,22 @@ footer h5 {
 @media screen and (max-width: 768px) {
   .switcher-wrap {
     display: none; } }
+
+
+    .scroll-container {
+      overflow: auto;
+      width: 100px; /* Set the width as needed */
+      
+  }
+
+  .card-title-container {
+      white-space: nowrap;
+      color: #00b35c;
+  }
+
+  .slider-buttons {
+    margin: 0 10px;
+    cursor: pointer;
+    display: inline-block;
+    color: #1de9b6;
+}
