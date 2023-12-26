@@ -69,7 +69,7 @@
             <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
                 <h1 class="heading-black text-capitalize">What is BSides Pakistan?</h1>
                 <p class="lead py-3">It's an attempt to provide the key ingredient required for an entire Cybersecurity eco-system to exists in Pakistan  i.e. highly skilled and passion-driven human resource.</p>
-                <button onclick="window.location.href='https://discord.bsides.pk/'" class="btn btn-primary d-inline-flex flex-row align-items-center">
+                <button onclick="openNewWindow('https://discord.bsides.pk/')" class="btn btn-primary d-inline-flex flex-row align-items-center">
                     Discord
                     <img class="ml-3 flex-row" src="/img/discord.png" style="height: 45px;" alt="Discord Logo">
                 </button>
@@ -177,7 +177,8 @@
                                 
                             </div>
                            
-                            <div class="text-muted font-weight-medium mt-2">per month</div>
+                            <!-- <div class="text-muted font-weight-medium mt-2">per month</div> -->
+                            <div id="numberOfMonths">Months: 1</div>
                     
                             <ul class="list-unstyled pricing-list">
                                 <li>Premium Rooms</li>
@@ -208,7 +209,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="card-body">
                             <h3 class="card-title pt-3">Enterprise</h3>
                             <h2 class="card-title text-primary mb-0 pt-4">$499</h2>
@@ -223,39 +224,17 @@
                                 Start free trial
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div class="row mt-6">
-            <div class="col-md-4 mr-auto">
-                <h3>Everything is covered.</h3>
-                <p class="lead">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in nisi commodo, tempus odio a,
-                    vestibulum nibh.
+            <div class=" mr-auto">
+                <h3>Important Note.</h3>
+                <p class="lead"style="font-style: italic; color: #1de9b6;">
+                    These are estimated prices can be vary on officals subscription portal. 
                 </p>
-            </div>
-            <div class="col-md-7 offset-md-1">
-                <ul class="features-list">
-                    <li>Weekly new templates</li>
-                    <li>Access to new features</li>
-                    <li>MailChimp integration</li>
-                    <li>Stripe integration</li>
-                    <li>100 refund guarantee</li>
-                    <li>Advance SEO tools</li>
-                    <li>Free unlimited support</li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-8 col-12 divider top-divider mx-auto pt-5 text-center">
-                <h3>Try Knight free for 7 days</h3>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in nisi commodo,
-                    tempus odio a, vestibulum nibh.</p>
-                <button class="btn btn-primary">
-                    Create your account
-                </button>
-            </div>
+            
         </div>
     </div>
 </section>
@@ -505,19 +484,39 @@
 <script src="https://www.twilik.com/assets/retainable/rss-embed/retainable-rss-embed.js"></script>
 
 <script>
+// function updateAmount() {
+//     var slider = document.getElementById("amountSlider");
+//     var amount = document.getElementById("amount");
+    
+//     // Ensure the slider value is a multiple of 14
+//     var newValue = Math.floor(slider.value / 14) * 14;
+    
+//     // Update the slider value
+//     slider.value = newValue;
+    
+//     // Update the displayed amount
+//     amount.innerText = "$" + newValue + ".00";
+// }
+
+
 function updateAmount() {
-    var slider = document.getElementById("amountSlider");
-    var amount = document.getElementById("amount");
-    
-    // Ensure the slider value is a multiple of 14
-    var newValue = Math.floor(slider.value / 14) * 14;
-    
-    // Update the slider value
-    slider.value = newValue;
-    
-    // Update the displayed amount
-    amount.innerText = "$" + newValue + ".00";
-}
+        var slider = document.getElementById("amountSlider");
+        var amount = document.getElementById("amount");
+        var numberOfMonthsElement = document.getElementById("numberOfMonths");
+
+        // Ensure the slider value is a multiple of 14
+        var newValue = Math.floor(slider.value / 14) * 14;
+
+        // Update the slider value
+        slider.value = newValue;
+
+        // Update the displayed amount
+        amount.innerText = "$" + newValue + ".00";
+
+        // Calculate the number of months and display it
+        var numberOfMonths = Math.max(Math.floor(newValue / 14), 1);
+        numberOfMonthsElement.innerText = "Months: " + numberOfMonths;
+    }
     function incrementSlider() {
         var slider = document.getElementById("amountSlider");
         if (parseInt(slider.value) < 336) {
@@ -533,6 +532,11 @@ function updateAmount() {
             updateAmount();
         }
     }
+    function openNewWindow(url) {
+        window.open(url, '_blank');
+    }
+
+
 </script>
 </body>
 </html>
